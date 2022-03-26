@@ -1,0 +1,19 @@
+.servise{
+    width: 100%;
+}
+
+.servise__list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.servise__list--item{
+    list-style-type: none;
+}
+
+.servise__list--item__image{
+    width: 100px;
+    height: 100px;
+}
