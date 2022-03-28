@@ -60,8 +60,6 @@ const AppServises = () => {
 
     const filters = filterServises();
     const currentServises = filters.slice(indexOfFirstPage, indexOfLastPage);
-    console.log(filters);
-    console.log(currentServises);
 
     const list = currentServises.map(item => {
       return(
@@ -74,11 +72,8 @@ const AppServises = () => {
       );
     });
     
-
     const visibleItems = term.length > 0 ? list : items;
     const servisesLength = term.length > 0 ? filters.length : servisesList.length;
-
-    console.log(visibleItems.length);
 
      return(
       <div className="servise">
