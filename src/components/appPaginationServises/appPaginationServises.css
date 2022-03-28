@@ -1,0 +1,22 @@
+.pagination{
+    display: flex;
+    flex-direction: row;
+}
+
+.pagination__item{
+    width: 15px;
+    height: 15px;
+
+    margin-left: 10px;
+
+    border: 1px solid rgb(48, 47, 94);
+    border-radius: 5px;
+
+    list-style-type: none; 
+    cursor: pointer;
+}
+
+.pagination__span{
+    margin-left: auto;
+    margin-right: auto;
+}

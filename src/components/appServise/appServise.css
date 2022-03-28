@@ -1,0 +1,47 @@
+.servise{
+    width: calc(100% - 100px);
+    padding: 50px;
+}
+
+.form{
+    width: calc(100% - 100px);
+    height: 150px;
+    margin: 0;
+    padding: 20px;
+
+    border: 1px solid #000;
+    border-radius: 20px;
+
+    background-color: #e5c293;
+}
+
+.servise__inner {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+}
+
+.servise__discrition{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+}
+
+.servise__image{
+    margin-left: 50px;
+
+    width: 70px;
+    height: 70px;
+}
+
+.servise__input{
+   display: flex;
+   flex-direction: column; 
+}
+
+.btn__submit{
+    width:120px;
+    height: 20px;
+}

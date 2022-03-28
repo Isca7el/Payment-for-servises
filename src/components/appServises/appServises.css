@@ -1,9 +1,14 @@
 .servise{
     width: calc(100% - 100px);
     padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .servise__list{
+    width: calc(100% - 100px);
     margin: 0;
     padding: 20px;
 
@@ -43,4 +48,11 @@
 .servise__list--item__image{
     width: 70px;
     height: 70px;
+}
+
+.servise__input{
+    width: 250px;
+    height: 20px;
+
+    margin-bottom: 20px;
 }

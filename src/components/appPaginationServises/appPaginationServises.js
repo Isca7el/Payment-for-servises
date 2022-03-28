@@ -1,3 +1,5 @@
+import './appPaginationServises.css';
+
 const AppPaginationServises = ({postPerPage, totalServises, paginate}) => {
 const pageNumbers = [];
 
@@ -8,11 +10,11 @@ for (let i = 1; i <= Math.ceil(totalServises / postPerPage); i++){
 
 const items = pageNumbers.map(number => {
     return(
-        <li key={number} className="pagination-item">
-        <span onClick={() => paginate(number)} className="pagination-link">
-            {number}
-        </span>
-    </li>
+        <li key={number} className="pagination__item">
+            <span className="pagination__span" onClick={() => paginate(number)}>
+                {number}
+            </span>
+        </li>
     )
 });
 

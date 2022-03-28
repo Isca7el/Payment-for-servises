@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
+import './appServise.css';
+
 const AppServise = () => {
     const { serviseID } = useParams();
     const [loading, setLoading] = useState(false);
@@ -11,9 +13,9 @@ const AppServise = () => {
     const [accountDirty, setAccountDirty] = useState(false);
     const [ammountDirty, setAmmountDirty] = useState(false);
     const [txnDirty, setTxnDirty] = useState(false);
-    const [errAccount, setErrAccount] = useState('Номер телефона не может быть путым');
-    const [errAmmount, setErrAmmount] = useState('Сумма не может быть путым');
-    const [errTxn, setErrTxn] = useState('Поле сообщения не может быть путым');
+    const [errAccount, setErrAccount] = useState('Номер телефона не может быть пустым');
+    const [errAmmount, setErrAmmount] = useState('Сумма не может быть пустым полем');
+    const [errTxn, setErrTxn] = useState('Поле сообщения не может быть пустым');
     const [formValid, setFormValid] = useState(false);
 
     const urlServise = `https://api.yii2-stage.test.wooppay.com/v1/service?service_name=${serviseID}`;
@@ -48,24 +50,30 @@ const AppServise = () => {
             console.log(err);
           });
     };
-    console.log(servise);
+    console.log(servise.length);
 
     const accountHandler = (e) => {
         setAccount(e.target.value);
-        const reg = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-        if (reg.test(!reg.test(e.target.value).toLowerCase())) {
-            setErrAccount('Некорректный номер');
-        } else {
-            setErrAccount('');
-        }
     };
 
     const ammountHandler = (e) => {
         setAmmount(e.target.value);
+
+        if (e.target.value < 0){
+            setErrAmmount('Сумма должна быть больше 0 и цифрой');
+        } else {
+            setErrAmmount('');
+        }
     };
 
     const txnHandler = (e) => {
         setTxn(e.target.value);
+
+        if (e.target.value < 8){
+            setErrTxn('Слишком короткое сообщение');
+        } else {
+            setErrTxn('');
+        }
     };
 
     const blurHandle = (e) => {
@@ -82,35 +90,25 @@ const AppServise = () => {
         }
     };
 
-    const View = () => {
-        if(loading == true){
-            return (
-                <form className="form">
-                     <div className="servise">
+    return (
+        <div className="servise">
+            <form className="form">
+                     <div className="servise__inner">
                            <div className="servise__discrition">
                                 <h3 className="servise__title">{servise.title}</h3>
                                <img className="servise__image" src={servise.picture_url} alt={servise.title}/>
                             </div>
-                            {(accountDirty && errAccount) && <div style={{color: 'red'}}>{errAccount}</div>}
-                            <input onChange={e =>accountHandler(e)} value={account} name="account" type="text" onBlur={e => blurHandle(e)} className="account"></input>
-                            {(ammountDirty && errAmmount) && <div style={{color: 'red'}}>{errAmmount}</div>}
-                            <input onChange={e =>ammountHandler(e)} value={ammount} name="ammount" onBlur={e => blurHandle(e)} className="ammount"></input>
-                            {(txnDirty && errTxn) && <div style={{color: 'red'}}>{errTxn}</div>}
-                            <input onChange={e =>txnHandler(e)} value={txn} name="txn" onBlur={e => blurHandle(e)} className="txn"></input>
-                            <button disabled={!formValid} className="btn__submit" type="submit"></button>
+                            <div className="servise__input">
+                                {(accountDirty && errAccount) && <div style={{color: 'red'}}>{errAccount}</div>}
+                                <input onChange={e =>accountHandler(e)} value={account} name="account" type="text" onBlur={e => blurHandle(e)} className="account"></input>
+                                {(ammountDirty && errAmmount) && <div style={{color: 'red'}}>{errAmmount}</div>}
+                                <input onChange={e =>ammountHandler(e)} value={ammount} name="ammount" onBlur={e => blurHandle(e)} className="ammount"></input>
+                                {(txnDirty && errTxn) && <div style={{color: 'red'}}>{errTxn}</div>}
+                                <input onChange={e =>txnHandler(e)} value={txn} name="txn" onBlur={e => blurHandle(e)} className="txn"></input>
+                            </div>
+                            <button disabled={!formValid} className="btn__submit" type="submit">Потвердить</button>
                      </div>
                 </form>
-            )
-        } else {
-            return(
-                <h3>Данный сервис не доступен</h3>
-            )
-        }
-    }
-
-    return (
-        <div className="servise">
-            <View/>
         </div>
     );
 };

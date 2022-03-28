@@ -77,7 +77,7 @@ const AppServises = () => {
 
      return(
       <div className="servise">
-        <input type="text" placeholder="Поиск сервиса" onChange={e => setTerm(e.target.value)}></input>
+        <input className="servise__input" type="text" placeholder="Поиск сервиса" onChange={e => setTerm(e.target.value)}></input>
         <ul className="servise__list">
           {visibleItems}
         </ul>
