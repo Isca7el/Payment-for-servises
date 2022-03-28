@@ -46,10 +46,17 @@ const AppServise = () => {
             console.log(err);
           });
     };
-    console.log(servise.length);
+
+    console.log(servise);
 
     const accountHandler = (e) => {
         setAccount(e.target.value);
+
+        if(!e.target.value){
+            setErrAccount('Вы ввели неверный номер'); 
+        } else {
+            setErrAccount('');
+        }
     };
 
     const ammountHandler = (e) => {
