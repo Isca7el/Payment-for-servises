@@ -1,58 +1,181 @@
-.servise{
-    width: calc(100% - 100px);
-    padding: 50px;
+@media (min-width: 1200px) {
+    .servise {
+        width: calc(100% - 100px);
+        padding: 50px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servise__list {
+        width: calc(100% - 100px);
+        margin: 0;
+        padding: 20px;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        border: 1px solid #000;
+        border-radius: 20px;
+
+        background-color: #e5c293;
+    }
+
+    .servise__list a {
+        text-decoration: none;
+    }
+
+    .servise__list--item {
+        padding: 0 20px;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 150px;
+
+        text-align: center;
+        align-items: center;
+
+        border: 1px solid rgb(187, 167, 233);
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    .servise__list--item__title {
+        font-size: 18px;
+    }
+
+    .servise__list--item__image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .servise__input {
+        width: 250px;
+        height: 20px;
+
+        margin-bottom: 20px;
+    }
 }
 
-.servise__list{
-    width: calc(100% - 100px);
-    margin: 0;
-    padding: 20px;
+@media (min-width: 768px) and (max-width: 1199px) {
+    .servise {
+        width: calc(100% - 100px);
+        padding: 30px;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    border: 1px solid #000;
-    border-radius: 20px;
+    .servise__list {
+        width: calc(100% - 100px);
+        margin: 0;
+        padding: 20px;
 
-    background-color: #e5c293;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        border: 1px solid #000;
+        border-radius: 20px;
+
+        background-color: #e5c293;
+    }
+
+    .servise__list a {
+        text-decoration: none;
+    }
+
+    .servise__list--item {
+        padding: 0 20px;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 150px;
+
+        text-align: center;
+        align-items: center;
+
+        border: 1px solid rgb(187, 167, 233);
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    .servise__list--item__title {
+        font-size: 18px;
+    }
+
+    .servise__list--item__image {
+        width: 50px;
+        height: 50px;
+    }
+
+    .servise__input {
+        width: 250px;
+        height: 20px;
+
+        margin-bottom: 20px;
+    }
 }
 
-.servise__list a{
-    text-decoration: none;
-}
+@media (max-width: 767px) {
+    .servise {
+        width: calc(100% - 100px);
+        padding: 30px;
 
-.servise__list--item{
-    padding: 0 20px;
-    margin-bottom: 10px;
-    width: 200px;
-    height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    text-align: center;
-    align-items: center;
-    
-    border: 1px solid rgb(187, 167, 233);
-    list-style-type: none;
-    cursor: pointer;
-}
+    .servise__list {
+        width: calc(100% - 100px);
+        margin: 0;
+        padding: 20px;
 
-.servise__list--item__title{
-    font-size: 18px;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-.servise__list--item__image{
-    width: 70px;
-    height: 70px;
-}
+        border: 1px solid #000;
+        border-radius: 20px;
 
-.servise__input{
-    width: 250px;
-    height: 20px;
+        background-color: #e5c293;
+    }
 
-    margin-bottom: 20px;
+    .servise__list a {
+        text-decoration: none;
+    }
+
+    .servise__list--item {
+        padding: 0 20px;
+        margin-bottom: 10px;
+        width: 200px;
+        height: 150px;
+
+        text-align: center;
+        align-items: center;
+
+        border: 1px solid rgb(187, 167, 233);
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    .servise__list--item__title {
+        font-size: 18px;
+    }
+
+    .servise__list--item__image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .servise__input {
+        width: 150px;
+        height: 15px;
+
+        margin-bottom: 20px;
+    }
 }

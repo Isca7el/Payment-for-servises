@@ -5,7 +5,6 @@ import './appServise.css';
 
 const AppServise = () => {
     const { serviseID } = useParams();
-    const [loading, setLoading] = useState(false);
     const [servise, setServise] = useState([]);
     const [account, setAccount] = useState('');
     const [ammount, setAmmount] = useState();
@@ -35,9 +34,7 @@ const AppServise = () => {
     const getResource = (url, dataSet) => {
         fetch(url)
         .then((response) => {
-            setLoading(true);
             if (!response.ok) {
-                setLoading(false);
               throw new Error(
                 `This is an HTTP error: The status is ${response.status}`
               );
@@ -46,7 +43,6 @@ const AppServise = () => {
         })
         .then((data) => dataSet(data[0]))
         .catch((err) => {
-            setLoading(false);
             console.log(err);
           });
     };
@@ -102,9 +98,9 @@ const AppServise = () => {
                                 {(accountDirty && errAccount) && <div style={{color: 'red'}}>{errAccount}</div>}
                                 <input onChange={e =>accountHandler(e)} value={account} name="account" type="text" onBlur={e => blurHandle(e)} className="account"></input>
                                 {(ammountDirty && errAmmount) && <div style={{color: 'red'}}>{errAmmount}</div>}
-                                <input onChange={e =>ammountHandler(e)} value={ammount} name="ammount" onBlur={e => blurHandle(e)} className="ammount"></input>
+                                <input onChange={e =>ammountHandler(e)} value={ammount} name="ammount" type="text" onBlur={e => blurHandle(e)} className="ammount"></input>
                                 {(txnDirty && errTxn) && <div style={{color: 'red'}}>{errTxn}</div>}
-                                <input onChange={e =>txnHandler(e)} value={txn} name="txn" onBlur={e => blurHandle(e)} className="txn"></input>
+                                <input onChange={e =>txnHandler(e)} value={txn} name="txn" type="text" onBlur={e => blurHandle(e)} className="txn"></input>
                             </div>
                             <button disabled={!formValid} className="btn__submit" type="submit">Потвердить</button>
                      </div>
