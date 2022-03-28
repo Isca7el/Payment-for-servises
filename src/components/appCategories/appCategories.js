@@ -6,6 +6,8 @@ import './appCategories.css';
 
 const AppCategories = () => {
     const [servisesList, setServisesList] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage, setPostPerPage] = useState(10);
 
     useEffect(() => {
         getResource(url, setServisesList);
@@ -31,18 +33,18 @@ const AppCategories = () => {
 
     const list = servisesList.map(item => {
         return(
-            <li key={uuidv4()} id={uuidv4()} data-id={item.id} className="servise__list--item">
+            <li key={uuidv4()} id={uuidv4()} data-id={item.id} className="category__list--item">
                 <Link to={`/servises/${item.id}`}>
-                <h3 className="servise__list--item__title">{item.title}</h3>
-                <img className="servise__list--item__image" src={item.picture_url} alt={item.name} />
+                <h3 className="category__list--item__title">{item.title}</h3>
+                <img className="category__list--item__image" src={item.picture_url} alt={item.name} />
                 </Link>
             </li>
         )
     });
 
     return ( 
-        <div className="servise">
-            <ul className="servise__list">
+        <div className="category">
+            <ul className="category__list">
                 {list}
             </ul>
         </div>
